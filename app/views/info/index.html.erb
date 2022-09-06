@@ -4,6 +4,9 @@
 <p>- ...</p>
 <p>- ...</p>
 <p>- ...</p>
-
-<p><%= button_to 'Регистрация', root_path %></p>
-<p><%= button_to 'Войти', root_path %></p>
+<% if @user.present? %>
+  <p><%= link_to 'Мой профиль', @user %></p>
+<% else %>
+  <p><%= link_to 'Регистрация', new_session_path %></p>
+  <p><%= link_to 'Войти', new_session_path %></p>
+<% end %>

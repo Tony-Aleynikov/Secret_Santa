@@ -1,0 +1,8 @@
+<h1>Вход</h1>
+<p>Введите свои данные для входа на сайт:</p>
+<p> <%= form_with scope: :session, url: session_path, data: {turbo: false} do |form| %></p>
+    <p><%= form.label :name %></p>
+    <p><%= form.text_field :name %></p>
+
+    <p><%= form.submit 'Войти' %> </p>
+<% end %>
