@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  skip_before_action :check_login, only: %i[new create]
 
   def new
     @user = User.new
@@ -6,16 +7,16 @@ class UsersController < ApplicationController
 
   def create
     user_params = params.require(:user).permit(:name)
-    User.create(user_params)
-    redirect_to root_path
+    user = User.create(user_params)
+    session[:user_id] = user.id
+    redirect_to user_path(user)
   end
 
   def edit
-    @user = current_user
+
   end
 
   def show
-    @user = current_user
   end
 
   def update
@@ -30,8 +31,7 @@ class UsersController < ApplicationController
   end
 
   def events
-    @user = User.find(params[:id])
+    @user = current_user
     @events = @user.events
   end
-
 end
