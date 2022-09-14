@@ -1,11 +1,11 @@
 <h1>Редактирование</h1>
 
-<%= form_with model: @user do |form| %>
+<%= form_with model: current_user do |form| %>
   <p><%= form.label :name, "Ваше имя" %></p>
   <p><%= form.text_field :name %></p>
 
   <p><%= form.submit 'Сохранить' %></p>
 <% end %>
-<p><%= button_to 'Удалить юзера', user_path(@user), method: :delete %></p>
+<p><%= button_to 'Удалить юзера', user_path(current_user), method: :delete %></p>
 <p>_______________________________________________</p>
-<p><%= link_to 'Вернуться на свою страницу', user_path(@user) %></p>
+<p><%= link_to 'Вернуться на свою страницу', user_path(current_user) %></p>
