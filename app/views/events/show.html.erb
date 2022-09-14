@@ -1,0 +1,16 @@
+<h1>Евент</h1>
+<p><%= "Имя евента - #{@event.name} " %></p>
+<p>Участники:</p>
+<p><% @party.each do |user| %></p>
+    <% if @id_for_santa == user.id and @id_for_santa != nil  %>
+  <p><%= link_to "#{user.name}", "/events/#{@event.id}/chat_for_santa" %></p>
+    <% else %>
+  <p><%= user.name %></p>
+    <% end %>
+<% end %>
+<p>_______________________________________________</p>
+<p><%= link_to "Чат с Тайным Сантой", "/events/#{@event.id}/chat_with_santa" %></p>
+<p>_______________________________________________</p>
+<p><%= link_to 'Начать евент', "/events/#{@event.id}/start" %></p>
+<p><%= link_to 'На мою страницу', current_user %></p>
+<p><%= link_to 'Показать все евенты', "/users/#{current_user.id}/events" %></p>
