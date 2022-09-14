@@ -1,5 +1,8 @@
 <h1>Ваши евенты:</h1>
 <p><% @events.each do |event| %></p>
   <p><%= "Евент #{event.name}" %></p>
+  <p><%= link_to 'Информация об евенте', event_path(event) %></p>
   <p><%= button_to 'Удалить евент', event_path(event), method: :delete %></p>
-  <% end %>
+  <p>____________________________________</p>
+<% end %>
+<p><%= link_to 'На мою страницу', @user %></p>
