@@ -1,0 +1,30 @@
+<h1>Ваш чатик с вашей жертвой</h1>
+
+<% if @messages.present? %>
+  <% @messages.each do |message| %>
+    <% if message.sender_id == current_user.id %>
+      <p><%= "#{current_user.name} #{message.created_at.strftime("%T")}: #{message.body}" %></p>
+    <% else %>
+      <p><%= "#{@user_for_santa.name} #{message.created_at.strftime("%T")}: #{message.body}" %></p>
+    <% end %>
+  <% end %>
+<% else %>
+  <p1>Ваш чатик пуст</p1>
+<% end %>
+
+<p>_______________________________________________</p>
+<%= form_with model: @message, url: messages_path do |form| %>
+  <p><%= form.label :body, "Введите сообщение" %></p>
+  <p><%= form.text_area :body, size: "40x3" %></p>
+
+  <%= form.hidden_field :event_id, value: @relation.event_id  %>
+  <%= form.hidden_field :sender_id, value: current_user.id  %>
+  <%= form.hidden_field :recipient_id, value: @user_for_santa.id %>
+  <%= form.hidden_field :whose_chat, value: "santa" %>
+
+
+  <p><%= form.submit 'Отправить' %></p>
+<% end %>
+<p>_______________________________________________</p>
+
+<p><%= link_to 'Вернуться к эвентам',  "/users/#{current_user.id}/events" %></p>
