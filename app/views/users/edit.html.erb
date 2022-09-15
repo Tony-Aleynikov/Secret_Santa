@@ -1,4 +1,4 @@
-<h1>Редактирование</h1>
+<h1>Редактирование профиля:</h1>
 
 <%= form_with model: current_user do |form| %>
   <p><%= form.label :name, "Ваше имя" %></p>
@@ -6,6 +6,6 @@
 
   <p><%= form.submit 'Сохранить' %></p>
 <% end %>
-<p><%= button_to 'Удалить юзера', user_path(current_user), method: :delete %></p>
-<p>_______________________________________________</p>
-<p><%= link_to 'Вернуться на свою страницу', user_path(current_user) %></p>
+<p><%= button_to 'Удалить профиль', user_path(current_user), method: :delete %></p>
+<p>-----------------------------------------------</p>
+<p><%= link_to 'Вернуться на мою страницу', user_path(current_user) %></p>
