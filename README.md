@@ -1,24 +1,3 @@
-# README
+Приложение посвящено игре "Тайный Санта"
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Вы можете создать мероприятие, пригласить в него участников. Приложение поможет вам распределить роли между участниками, а так же общаться лично с вашим Тайным Сантой.
